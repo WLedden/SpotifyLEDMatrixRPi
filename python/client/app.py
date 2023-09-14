@@ -29,7 +29,7 @@ def saved_config():
     height = int(config['DEFAULT']['columns'])
     power = config['DEFAULT']['power']
     refresh_rate = config['DEFAULT']['refresh_rate']
-    return render_template('index.html', brightness = brightness, width = width, height = height, power = power, refresh_rate = refresh_rate)
+    return render_template('settings.html', brightness = brightness, width = width, height = height, power = power, refresh_rate = refresh_rate)
 
 # handling power status
 @app.route("/power", methods=["GET", "POST"])
@@ -43,7 +43,7 @@ def handle_power():
       job = manager.StartUnit('spotipi.service', 'replace')
     else:
       job = manager.StopUnit('spotipi.service', 'replace')
-    return render_template('index.html', brightness = brightness, width = width, height = height, power = power)
+    return render_template('settings.html', brightness = brightness, width = width, height = height, power = power)
 
 # handling form data
 @app.route('/brightness', methods=['POST'])
@@ -55,7 +55,7 @@ def handle_brightness():
     with open(filename, 'w') as configfile:
         config.write(configfile)
     job = manager.RestartUnit('spotipi.service', 'fail')
-    return render_template('index.html', brightness = request.form['brightness'], width = width, height = height, power = power)
+    return render_template('settings.html', brightness = request.form['brightness'], width = width, height = height, power = power)
 
 # handling form data
 @app.route('/size', methods=['POST'])
@@ -67,7 +67,7 @@ def handle_size():
     with open(filename, 'w') as configfile:
         config.write(configfile)
     job = manager.RestartUnit('spotipi.service', 'fail')
-    return render_template('index.html', brightness = brightness, width = int(request.form['width']), height = int(request.form['height']), power = power)
+    return render_template('settings.html', brightness = brightness, width = int(request.form['width']), height = int(request.form['height']), power = power)
 
 # handling form data
 @app.route('/refresh-rate', methods=['POST'])
@@ -80,7 +80,7 @@ def handle_refresh_rate():
     with open(filename, 'w') as configfile:
         config.write(configfile)
     job = manager.RestartUnit('spotipi.service', 'fail')
-    return render_template('index.html', brightness = brightness, width = width, height = height, refresh_rate = int(request.form['refresh_rate']), power = power)
+    return render_template('settings.html', brightness = brightness, width = width, height = height, refresh_rate = int(request.form['refresh_rate']), power = power)
 
 app.run(host='0.0.0.0', port=80) 
 
