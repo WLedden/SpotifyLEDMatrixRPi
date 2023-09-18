@@ -20,8 +20,13 @@ sysbus = dbus.SystemBus()
 systemd1 = sysbus.get_object('org.freedesktop.systemd1', '/org/freedesktop/systemd1')
 manager = dbus.Interface(systemd1, 'org.freedesktop.systemd1.Manager')
 
-# home route
+# index page route
 @app.route("/")
+def index():
+    return render_template('index.html')
+
+# settings page route
+@app.route("/settings.html")
 def saved_config():
     # Brightness from config file
     brightness = int(config['DEFAULT']['brightness'])
