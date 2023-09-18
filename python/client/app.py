@@ -22,6 +22,7 @@ manager = dbus.Interface(systemd1, 'org.freedesktop.systemd1.Manager')
 
 # index page route
 @app.route("/")
+@app.route("/index.html", endpoint='index')
 def index():
     return render_template('index.html')
 
