@@ -7,7 +7,7 @@ echo "Installing spotipy library:"
 pip install spotipy --upgrade
 
 echo "Installing pillow library:"
-pip install pillow --upgrade
+pip install pillow==9.5.0
 
 echo "Installing flask library:"
 pip install flask --upgrade
