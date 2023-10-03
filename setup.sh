@@ -76,6 +76,10 @@ sudo systemctl start spotipi-client
 sudo systemctl enable spotipi-client
 echo "...done"
 
+echo "Disabling On-board Sound..."
+echo "blacklist snd_bcm2835" >> /etc/modprobe.d/raspi-blacklist.conf
+echo "snd_bcm2835 has been blacklisted from boot"
+
 echo -n "In order to finish setup a reboot is necessary..."
 echo -n "REBOOT NOW? [y/N] "
 read
