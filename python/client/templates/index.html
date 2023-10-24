@@ -12,6 +12,8 @@
         <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/starter-template/">
 
         <link href="/static/starter-template.css" rel="stylesheet">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <scipt src="../current_song.js"></scipt>
     </head>
 
     <body>
@@ -28,10 +30,7 @@
                             <a class="nav-link" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="settings.html">Settings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/ryanwa18/spotipi/blob/develop/README.md">Documentation</a>
+                            <a class="nav-link" href="settings.html">Matrix Controls</a>
                         </li>
                 </div>
             </div>
@@ -39,9 +38,13 @@
 
         <main>
             <h1>Current Song</h1>
+            <span id="current_song">?</span>
+
         </main>
 
-        <script src="/static/bootstrap.min.js"></script>
+        <script >
+            document.getElementById("song").innerHTML
+        </script>
   
     </body>
 </html>

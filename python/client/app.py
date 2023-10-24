@@ -1,10 +1,11 @@
 # app.py
 
 # also importing the request module
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import sys,os
 import configparser
 import dbus
+import getSongInfo
 
 app = Flask(__name__)
 app.config["CACHE_TYPE"] = "null"
@@ -25,6 +26,11 @@ manager = dbus.Interface(systemd1, 'org.freedesktop.systemd1.Manager')
 @app.route("/index.html", endpoint='index')
 def index():
     return render_template('index.html')
+
+@app.route("/Current_Song", methods = ["GET"])
+def current_song():
+
+    return jsonify(song=getSongInfo)
 
 # settings page route
 @app.route("/settings.html")
