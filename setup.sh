@@ -1,7 +1,19 @@
 #!/bin/bash
 
+echo "installing Python 3.9"
+sudo apt install python3.9
+
+echo "Installing Python 3.9 venv package"
+sudo apt install python3.9-venv
+
+echo "Creating venv in spotipi"
+python3.9 -m venv ./.venv
+
 echo "Ensure packages are installed:"
 sudo apt-get install libopenjp2-7 python3-dbus
+
+echo "activating python venv"
+source ./my-venv-name/bin/activate
 
 echo "Installing spotipy library:"
 ./.venv/bin/pip install spotipy --upgrade
