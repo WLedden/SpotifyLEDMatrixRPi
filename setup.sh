@@ -3,17 +3,14 @@
 echo "Ensure packages are installed:"
 sudo apt-get install libopenjp2-7 python3-dbus
 
-echo "activating python venv"
-source ./my-venv-name/bin/activate
-
 echo "Installing spotipy library:"
-./.venv/bin/pip install spotipy --upgrade
+pip install spotipy --upgrade
 
 echo "Installing pillow library:"
-./.venv/bin/pip install pillow==9.5.0
+pip install pillow==9.5.0
 
 echo "Installing flask library:"
-./.venv/bin/pip install flask --upgrade
+pip install flask --upgrade
 
 echo "Enter your Spotify Client ID:"
 read spotify_client_id
